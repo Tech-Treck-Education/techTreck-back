@@ -1,4 +1,6 @@
 import { DataTypes } from "sequelize";
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import sequelize from "../config/db.js";
 
 const User = sequelize.define('User', {
@@ -27,6 +29,24 @@ const User = sequelize.define('User', {
     score: {
         type: DataTypes.NUMBER,
         defaultValue: 0,
+    }
+});
+
+
+User.prototype.generateAuthToken = function () {
+    const token = jwt.sign({ id: this.id, email: this.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    return token;
+};
+
+// Método para verificar a senha durante o login
+User.prototype.isValidPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
+
+// Hook para hash da senha antes de salvar
+User.beforeSave(async (user, options) => {
+    if (user.changed('password')) {
+        user.password = await bcrypt.hash(user.password, 10);
     }
 });
 

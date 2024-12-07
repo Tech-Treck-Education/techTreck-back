@@ -4,12 +4,20 @@ async function findAll () {
     return await User.findAll();
 }
 
+async function findByEmail(email) {
+    return await User.findOne({ where: { email } })
+}
+
 async function findById (id) {
     return await User.findByPk(id)
 }
 
 async function create (name, email, password) {
+    console.log('entrou aqui');
+    
     return await User.create({ name, email, password })
+    console.log('saiu aqui');
+    
 }
 
 async function remove (id) {
@@ -45,5 +53,6 @@ export default {
     findAll,
     findById,
     update,
-    remove
+    remove,
+    findByEmail
 } 
