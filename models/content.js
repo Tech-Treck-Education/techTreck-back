@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
-import Course from "./course.js";  // Importa o modelo Curso
+import Course from "./course.js";  
 
 const Content = sequelize.define('Content', {
     id: {
