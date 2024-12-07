@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
+import Course from "./course.js";
 
 const Trail = sequelize.define('Trail', {
     id: {
@@ -13,12 +14,12 @@ const Trail = sequelize.define('Trail', {
     },
     imageUrl: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull:true
     }
 });
 
 // Relacionamento: Uma Trail pode ter vários Cursos
-Trail.hasMany(Curso, { foreignKey: 'trailId' });
-Curso.belongsTo(Trail, { foreignKey: 'trailId' });
+Trail.hasMany(Course, { foreignKey: 'trailId' });
+Course.belongsTo(Trail, { foreignKey: 'trailId' });
 
 export default Trail;
