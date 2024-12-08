@@ -4,6 +4,7 @@ import sequelize from './config/db.js';
 import usuarioRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
 import rotaAutenticada from './routes/rotaAutenticada.js'
+import contentRoutes from './routes/content.js';
 
 dotenv.config();
 
@@ -22,7 +23,11 @@ sequelize.sync() // sincronizando com o banco
 app.use('/api/users', usuarioRoutes)
 app.use('/api/auth', authRoutes )
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
+app.use('/api/content', contentRoutes);
 
+app.listen(port, () => {
+    console.log(`Server rodando na porta ${port}`);
+});
 app.listen(port, () => {
     console.log(`Server rodando na porta ${port}`);
 });
