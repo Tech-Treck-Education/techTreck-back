@@ -4,6 +4,10 @@ import sequelize from './config/db.js';
 import usuarioRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
 import trailRoutes from './routes/trail.js'
+import courseRoutes from './routes/courses.js'
+import contentRoutes from './routes/contents.js'
+import questionRoutes from './routes/question.js'
+
 import rotaAutenticada from './routes/rotaAutenticada.js'
 import './models/associations.js';
 
@@ -23,7 +27,10 @@ sequelize.sync() // sincronizando com o banco
 
 app.use('/api/users', usuarioRoutes)
 app.use('/api/auth', authRoutes)
-app.use('api/trail', trailRoutes)
+app.use('/api/trail', trailRoutes)
+app.use('/api/course', courseRoutes)
+app.use('/api/content', contentRoutes)
+app.use('/api/question', questionRoutes)
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
 
 app.listen(port, () => {

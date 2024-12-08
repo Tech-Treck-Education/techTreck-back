@@ -1,4 +1,4 @@
-import Question from "../models/Question.js";
+import Question from "../models/question.js";
 
 async function findAll () {
     return await question.findAll();
@@ -9,8 +9,8 @@ async function findById (id) {
     return await question.findByPk(id)
 }
 
-async function create (enunciation, alternative_a,alternative_b,alternative_c,alternative_d) {
-    return await question.create({ 
+async function create (enunciation, alternative_a, alternative_b, alternative_c, alternative_d) {
+    return await question.create({
         enunciation,
         alternative_a,
         alternative_b,

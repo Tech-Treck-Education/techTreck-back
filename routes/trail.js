@@ -6,7 +6,7 @@ const router = Router()
 
 router.post('/', async (req, res) => {
     try {
-        const { name, imageUrl} = req.body
+        const { name, imageUrl } = req.body
         res.json(await trailRepository.create(name, imageUrl))
     } catch (error) {
         res.json({ message: 'Houve um erro ao criar trilha' })

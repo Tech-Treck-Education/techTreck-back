@@ -9,8 +9,6 @@ router.post("/login", async (req, res) => {
 
     try {
         const user = await usersRepository.findByEmail(email)
-        console.log(user);
-
 
         if (!user) {
             return res.status(400).json({ message: "Email ou senha incorretos" });

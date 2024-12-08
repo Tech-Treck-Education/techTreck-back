@@ -14,12 +14,9 @@ const Trail = sequelize.define('Trail', {
     },
     imageUrl: {
         type: DataTypes.STRING,
-        allowNull:true
+        allowNull: true
     }
 });
 
-// Relacionamento: Uma Trail pode ter vários Cursos
-Trail.hasMany(Course, { foreignKey: 'trailId' });
-Course.belongsTo(Trail, { foreignKey: 'trailId' });
 
 export default Trail;
