@@ -9,6 +9,8 @@ import contentRoutes from './routes/contents.js'
 import questionRoutes from './routes/question.js'
 
 import rotaAutenticada from './routes/rotaAutenticada.js'
+import contentRoutes from './routes/contents.js';
+import courseRoutes from './routes/courses.js';
 import './models/associations.js';
 
 dotenv.config();
@@ -32,6 +34,8 @@ app.use('/api/course', courseRoutes)
 app.use('/api/content', contentRoutes)
 app.use('/api/question', questionRoutes)
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
+app.use('/api/content', contentRoutes);
+app.use('/api/courses', courseRoutes);
 
 app.listen(port, () => {
     console.log(`Server rodando na porta ${port}`);
