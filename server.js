@@ -5,6 +5,8 @@ import usuarioRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
 import trailRoutes from './routes/trail.js'
 import rotaAutenticada from './routes/rotaAutenticada.js'
+import contentRoutes from './routes/contents.js';
+import courseRoutes from './routes/courses.js';
 import './models/associations.js';
 
 dotenv.config();
