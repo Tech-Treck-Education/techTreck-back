@@ -21,7 +21,7 @@ const Content = sequelize.define('Content', {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            model: Course,
+            model: 'Course',
             key: 'id',
         }
     },

@@ -3,9 +3,11 @@ import express from 'express'
 import sequelize from './config/db.js';
 import usuarioRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
+import trailRoutes from './routes/trail.js'
 import rotaAutenticada from './routes/rotaAutenticada.js'
 import contentRoutes from './routes/contents.js';
 import courseRoutes from './routes/courses.js';
+import './models/associations.js';
 
 dotenv.config();
 
@@ -22,7 +24,8 @@ sequelize.sync() // sincronizando com o banco
     .catch((error) => console.error('Erro ao sincronizar o banco de dados:', error));
 
 app.use('/api/users', usuarioRoutes)
-app.use('/api/auth', authRoutes )
+app.use('/api/auth', authRoutes)
+app.use('api/trail', trailRoutes)
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
 app.use('/api/content', contentRoutes);
 app.use('/api/courses', courseRoutes);
