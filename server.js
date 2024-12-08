@@ -4,7 +4,7 @@ import sequelize from './config/db.js';
 import usuarioRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
 import rotaAutenticada from './routes/rotaAutenticada.js'
-import contentRoutes from './routes/content.js';
+import contentRoutes from './routes/contents.js';
 
 dotenv.config();
 
