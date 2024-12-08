@@ -5,6 +5,7 @@ import usuarioRoutes from './routes/users.js'
 import authRoutes from './routes/auth.js'
 import rotaAutenticada from './routes/rotaAutenticada.js'
 import contentRoutes from './routes/contents.js';
+import courseRoutes from './routes/courses.js';
 
 dotenv.config();
 
@@ -24,10 +25,8 @@ app.use('/api/users', usuarioRoutes)
 app.use('/api/auth', authRoutes )
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
 app.use('/api/content', contentRoutes);
+app.use('/api/courses', courseRoutes);
 
-app.listen(port, () => {
-    console.log(`Server rodando na porta ${port}`);
-});
 app.listen(port, () => {
     console.log(`Server rodando na porta ${port}`);
 });
