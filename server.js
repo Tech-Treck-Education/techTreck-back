@@ -27,6 +27,8 @@ app.use('/api/users', usuarioRoutes)
 app.use('/api/auth', authRoutes)
 app.use('api/trail', trailRoutes)
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
+app.use('/api/content', contentRoutes);
+app.use('/api/courses', courseRoutes);
 
 app.listen(port, () => {
     console.log(`Server rodando na porta ${port}`);
