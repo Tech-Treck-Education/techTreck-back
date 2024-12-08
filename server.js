@@ -17,12 +17,12 @@ const port = 3000;
 
 app.use(express.json())
 
-sequelize.sync({ force: true }) // sincronizando com o banco 
+sequelize.sync() // sincronizando com o banco 
     .then(() => console.log('Banco de dados sincronizado'))
     .catch((error) => console.error('Erro ao sincronizar o banco de dados:', error));
 
 app.use('/api/users', usuarioRoutes)
-app.use('/api/auth', authRoutes )
+app.use('/api/auth', authRoutes)
 app.use('api/trail', trailRoutes)
 app.use('/rotaAutenticada', rotaAutenticada) // so um exemplo p ver se autenticacao estava funcionando
 
